@@ -2,8 +2,8 @@ name: packer validate
 
 on:
   push:
-  pull_request:
-    branches: [main]
+#  pull_request:
+#    branches: [main]
 
 jobs:
   validate:
@@ -23,13 +23,13 @@ jobs:
         env:
           PACKER_LOG: 1
 
-      - name: Build
-        uses: hashicorp/packer-github-actions@master
-        with:
-          command: build
-          target: ami.json
-        env:
-          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
-          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+#      - name: Build
+#        uses: hashicorp/packer-github-actions@master
+#        with:
+#          command: build
+#          target: ami.json
+#        env:
+#          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+#          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
 
 
