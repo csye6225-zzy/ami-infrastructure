@@ -1,0 +1,35 @@
+name: packer validate
+
+on:
+  push:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+
+      - name: Validate
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: validate
+          arguments: -syntax-only
+          target: ami.json
+        env:
+          PACKER_LOG: 1
+
+      - name: Build
+        uses: hashicorp/packer-github-actions@master
+        with:
+          command: build
+          target: ami.json
+        env:
+          AWS_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY }}
+          AWS_SECRET_KEY: ${{ secrets.AWS_SECRET_KEY }}
+
+
