@@ -13,7 +13,8 @@ chmod +x ./install
 sudo ./install auto > /tmp/logfile
 
 cd /usr/local/
-mkdir web
+sudo mkdir web
+sudo chmod 777 web
 cd web
 touch log
 chmod 666 log
