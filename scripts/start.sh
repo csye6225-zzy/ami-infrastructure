@@ -3,7 +3,6 @@
 sudo apt-get update
 sudo apt-get update
 sudo apt-get install openjdk-8-jdk -y
-sudo apt-get install mysql-client -y
 
 sudo apt install ruby-full -y
 
